@@ -36,13 +36,20 @@ const textStyle = {
   marginBottom: "20px",
 };
 
+const infoTextStyle = {
+  color: "#00C853",
+  fontSize: "14px",
+  marginBottom: "15px",
+};
+
+
 // Componente principal
 const Dashboard = () => {
   const [user, setUser] = useState(null); // Estado: datos del usuario.
 
   useEffect(() => {
     // Montaje: Obtiene datos del usuario desde el backend.
-    api.get("/auth")
+    api.get("/auth/user")
       .then((res) => setUser(res.data))
       .catch(() => setUser(null));
   }, []); // [] → Solo se ejecuta al montar el componente.
@@ -65,12 +72,12 @@ const Dashboard = () => {
         <h1 style={{ marginBottom: "8px" }}>Hola, {user.displayName} 👋</h1>
         <p style={infoTextStyle}>Autenticación exitosa con Google!</p>
         <img
-          src={user.photos[0]?.value}
-          alt="Foto de perfil"
-          style={imageStyle}
+        src={user.photos?.[0]?.value || "/default-avatar.png"}
+        alt="Foto de perfil"
+        style={imageStyle}
         />
         <h3 style={{ margin: "10px 5px", color: "#fff" }}>
-          {user.emails[0].value}
+        {user.emails?.[0]?.value || "Email no disponible"}
         </h3>
         <p style={{ color: "#bbb", fontSize: "13px" }}>
           ID de sesión: {user.id}

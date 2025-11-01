@@ -38,8 +38,9 @@ const iconStyle = {
 };
 
 const Home = () => {
+
   const handleLogin = () => {
-    window.location.href = "http://localhost:3000/auth/google";
+    window.location.href = "https://paranormal-cadaver-5ggjgr9575qvfvw5x-3000.app.github.dev/auth/google";
   };
 
   return (
@@ -56,8 +57,12 @@ const Home = () => {
         <button
           onClick={handleLogin}
           style={buttonStyle}
-          onMouseOver={(e) => (e.currentTarget.style.backgroundColor = "#357ae8")}
-          onMouseOut={(e) => (e.currentTarget.style.backgroundColor = "#4285F4")}
+          onMouseOver={(e) =>
+            (e.currentTarget.style.backgroundColor = "#357ae8")
+          }
+          onMouseOut={(e) =>
+            (e.currentTarget.style.backgroundColor = "#4285F4")
+          }
         >
           <span style={iconStyle}>🔵</span>
           Iniciar sesión con Google

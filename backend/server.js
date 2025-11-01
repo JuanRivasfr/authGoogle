@@ -8,7 +8,7 @@ require("dotenv").config();
 const app = express();
 
 app.use(cors({
-    origin: process.env.FRONTEND_URL || "http://localhost:5173",
+    origin: "https://paranormal-cadaver-5ggjgr9575qvfvw5x-5173.app.github.dev",
     credentials: true,
 }));
 
@@ -33,7 +33,7 @@ passport.use(
         {
             clientID: process.env.GOOGLE_CLIENT_ID,
             clientSecret: process.env.GOOGLE_CLIENT_SECRET,
-            callbackURL: `${process.env.BACKEND_URL}/auth/google/callback`,
+            callbackURL: 'https://paranormal-cadaver-5ggjgr9575qvfvw5x-3000.app.github.dev/auth/google/callback',
         },
         (accessToken, refreshToken, profile, done) => {
             return done(null, profile);
@@ -52,7 +52,7 @@ app.get(
     "/auth/google/callback",
     passport.authenticate("google", { failureRedirect: "/" }),
     (req, res) => {
-        res.redirect(`${process.env.FRONTEND_URL}/dashboard`);
+        res.redirect(`https://paranormal-cadaver-5ggjgr9575qvfvw5x-5173.app.github.dev/dashboard`);
     }
 );
 

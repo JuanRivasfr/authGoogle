@@ -1,7 +1,7 @@
 import axios from "axios";
 
 const api = axios.create({
-  baseURL: import.meta.env.VITE_API_URL || "http://localhost:3000",
+  baseURL: "https://paranormal-cadaver-5ggjgr9575qvfvw5x-5173.app.github.dev",
   withCredentials: true,
 });
 
